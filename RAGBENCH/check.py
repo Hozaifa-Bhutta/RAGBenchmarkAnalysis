@@ -15,17 +15,8 @@ for dataset in datasets:
     for split in ds:
         for example in ds[split]:
             num_queries += 1
-            if (type(example["question"]) != str):
-                # never entered
-                print(f"Query is not a string: {example['question']}")
-                exit()
             for chunk in example["documents"]:
-                if (type(chunk) != str):
-                    # never entered
-                    print(f"Chunk is not a string: {chunk}")
-                    exit()
                 chunks.add(chunk)
-
             
 
 chunk_sizes = []
