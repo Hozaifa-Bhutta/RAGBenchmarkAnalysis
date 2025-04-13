@@ -1,6 +1,6 @@
+# The dataset used for this benchmark is available at: https://github.com/hotpotqa/hotpot/tree/master.
 import json
 import tiktoken
-import statistics  
 
 def count_tokens(text):
     enc = tiktoken.get_encoding("o200k_base")

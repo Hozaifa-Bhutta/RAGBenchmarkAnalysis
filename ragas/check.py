@@ -1,9 +1,10 @@
-import datasets
+# The dataset is available at: https://huggingface.co/datasets/explodinggradients/WikiEval
 import tiktoken
+from datasets import load_dataset
+
 def count_tokens(text):
     encoding = tiktoken.get_encoding("o200k_base")
     return len(encoding.encode(text))
-from datasets import load_dataset
 
 dataset = load_dataset("explodinggradients/WikiEval")
 print(dataset)

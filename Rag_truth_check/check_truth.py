@@ -1,6 +1,6 @@
+# The dataset used for this benchmark is available at: https://github.com/ParticleMedia/RAGTruth
 import json
 import tiktoken
-import statistics
 # load source_info.jsonl as json
 def count_tokens(text):
     encoding = tiktoken.get_encoding("o200k_base")

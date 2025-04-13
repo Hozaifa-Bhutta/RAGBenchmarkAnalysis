@@ -1,6 +1,5 @@
-# import necessary stuff to read .tsv files
+# The datasets are available at: https://github.com/stanford-futuredata/ARES
 import pandas as pd
-import os
 import tiktoken
 def count(text):
     encoding = tiktoken.get_encoding("o200k_base")
@@ -9,8 +8,8 @@ def count(text):
 # now read all files in the directory that end with .tsv
 chunks = set()
 num_queries = 0
-
-for filename in os.listdir('.'):
+files = ["fever_synthetic_queries.tsv", "hotpotqa_synthetic_queries.tsv", "multirc_synthetic_queries.tsv", "nq_labeled_output.tsv", "nq_synthetic_queries.tsv", "record_synthetic_queries.tsv", "wow_synthetic_queries.tsv"]
+for filename in files:
     if filename.endswith('.tsv'):
         # read the file
         df = pd.read_csv(filename, sep='\t')

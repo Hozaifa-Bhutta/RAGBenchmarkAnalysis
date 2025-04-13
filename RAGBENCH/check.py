@@ -1,6 +1,6 @@
+# The benchmark dataset used is available at: https://huggingface.co/datasets/rungalileo/ragbench.
 from datasets import load_dataset
 import tiktoken
-import statistics
 def count_tokens(text):
     encoding = tiktoken.get_encoding("o200k_base")
     tokens = encoding.encode(text)
@@ -14,13 +14,14 @@ for dataset in datasets:
     print(dataset)
     for split in ds:
         for example in ds[split]:
-
             num_queries += 1
             if (type(example["question"]) != str):
+                # never entered
                 print(f"Query is not a string: {example['question']}")
                 exit()
             for chunk in example["documents"]:
                 if (type(chunk) != str):
+                    # never entered
                     print(f"Chunk is not a string: {chunk}")
                     exit()
                 chunks.add(chunk)
